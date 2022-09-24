@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/models/product.dart';
+import 'package:myshop/ui/orders/order_screen.dart';
 import 'package:myshop/ui/products/product_overview_screen.dart';
 import 'package:myshop/ui/products/products_detail_screen.dart';
 import 'package:myshop/ui/products/products_manager.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const SafeArea(
-        child: CartScreen(),
+        child: OrderScreen(),
       ),
     );
   }
