@@ -51,6 +51,6 @@ class ProductsManager {
   }
 
   Product findById(String id) {
-    return _item.firstWhere((prod) =>  prod.id == id);
+    return _item.firstWhere((prod) => prod.id == id);
   }
 }

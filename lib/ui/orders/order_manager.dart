@@ -6,12 +6,12 @@ import '../../models/order_item.dart';
 class OrderManager with ChangeNotifier {
   final List<OrderItem> _orders = [
     OrderItem(
-        id: 'o1',
-        amount: 59.98,
-        products: [
-          CartItem(id: 'c1', title: 'Red Shirt', quantity: 2, price: 29.99)
-        ],
-        dateTime: DateTime.now(),
+      id: 'o1',
+      amount: 59.98,
+      products: [
+        CartItem(id: 'c1', title: 'Red Shirt', quantity: 2, price: 29.99)
+      ],
+      dateTime: DateTime.now(),
     )
   ];
 

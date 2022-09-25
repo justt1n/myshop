@@ -17,9 +17,11 @@ class CartItem {
     int? quantity,
     double? price,
   }) {
-    return CartItem(id: id ?? this.id,
-        title: title ?? this.title,
-        quantity: quantity ?? this.quantity,
-        price: price ?? this.price,);
+    return CartItem(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
   }
 }
