@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/ui/shared/app_drawer.dart';
+import 'package:provider/provider.dart';
 
 import 'order_manager.dart';
 import 'order_item_card.dart';
@@ -18,9 +19,13 @@ class OrderScreen extends StatelessWidget {
         title: const Text('Your Orders'),
       ),
       drawer: const AppDrawer(),
-      body: ListView.builder(
-        itemCount: orderManager.orderCount,
-        itemBuilder: (ctx, i) => OrderItemCard(orderManager.orders[i]),
+      body: Consumer<OrderManager>(
+        builder: (ctx, ordersManager, child) {
+          return ListView.builder(
+            itemCount: orderManager.orderCount,
+            itemBuilder: (ctx, i) => OrderItemCard(orderManager.orders[i]),
+          );
+        },
       ),
     );
   }

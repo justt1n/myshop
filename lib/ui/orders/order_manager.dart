@@ -15,6 +15,19 @@ class OrderManager with ChangeNotifier {
     )
   ];
 
+  void addOrder(List<CartItem> cartProducts, double total) async {
+    _orders.insert(
+      0,
+      OrderItem(
+        id: 'o${DateTime.now().toIso8601String()}',
+        amount: total,
+        products: cartProducts,
+        dateTime: DateTime.now(),
+      ),
+    );
+    notifyListeners();
+  }
+
   int get orderCount {
     return _orders.length;
   }
