@@ -102,15 +102,17 @@ class _EditProductScreenState extends State<EditProductScreen> {
     return showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text('An Error Occurred!'),
-          content: Text(message),
-          actions: <Widget>[
-            TextButton(onPressed: () {
-              Navigator.of(ctx).pop();
-            }, child: const Text('Okay'),)
-          ],
-        )
-    );
+              title: const Text('An Error Occurred!'),
+              content: Text(message),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                  },
+                  child: const Text('Okay'),
+                )
+              ],
+            ));
   }
 
   @override
@@ -171,7 +173,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.number,
       validator: (value) {
-        if(value!.isEmpty) {
+        if (value!.isEmpty) {
           return 'Please enter a price.';
         }
         if (double.tryParse(value) == null) {
@@ -195,10 +197,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
       maxLines: 3,
       keyboardType: TextInputType.multiline,
       validator: (value) {
-        if(value!.isEmpty) {
+        if (value!.isEmpty) {
           return 'Please enter a description';
         }
-        if(value.length < 10) {
+        if (value.length < 10) {
           return 'Should be at least 10 characters long.';
         }
         return null;
@@ -215,24 +217,25 @@ class _EditProductScreenState extends State<EditProductScreen> {
       children: <Widget>[
         Container(
           width: 100,
-            height: 100,
-            margin: const EdgeInsets.only(
-              top: 8,
-              right: 10,
-            ),
+          height: 100,
+          margin: const EdgeInsets.only(
+            top: 8,
+            right: 10,
+          ),
           decoration: BoxDecoration(
             border: Border.all(
               width: 1,
               color: Colors.grey,
             ),
           ),
-          child: _imageUrlController.text.isEmpty ? const Text('Enter a URL')
-            : FittedBox(
-            child: Image.network(
-              _imageUrlController.text,
-              fit: BoxFit.cover,
-            ),
-          ),
+          child: _imageUrlController.text.isEmpty
+              ? const Text('Enter a URL')
+              : FittedBox(
+                  child: Image.network(
+                    _imageUrlController.text,
+                    fit: BoxFit.cover,
+                  ),
+                ),
         ),
         Expanded(
           child: buildImageURLField(),
